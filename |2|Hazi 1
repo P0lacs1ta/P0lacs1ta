@@ -18,7 +18,7 @@ int main()
             t[i]=rand() % (5-1+1)+1;
             printf("%d ",t[i]);
         }
-    printf("%f", atlagszamitas(t));
+    printf("\n A szamok atlaga: %f", atlagszamitas(t));
 
     return 0;
 }
@@ -32,3 +32,11 @@ double atlagszamitas(int t[]){
     return atlag;
 
 }
+
+
+Output: 
+
+1 5 2 1 1 2 3 4 4 3 2 4 3 1 5 3 2 5 2 3
+ A szamok atlaga: 2.800000
+Process returned 0 (0x0)   execution time : 0.059 s
+Press any key to continue.
