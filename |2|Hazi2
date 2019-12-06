@@ -48,3 +48,29 @@ int jegy(int t[])
     return ;
 
 }
+
+Output:
+18 39 33 28 43 20 49 14 28 9 24 7 3 43 48 42 3 17 12 21
+
+ Az 1. hallgato jegye: 2, Pontjai: 18
+ Az 2. hallgato jegye: 4, Pontjai: 39
+ Az 3. hallgato jegye: 4, Pontjai: 33
+ Az 4. hallgato jegye: 3, Pontjai: 28
+ Az 5. hallgato jegye: 5, Pontjai: 43
+ Az 6. hallgato jegye: 2, Pontjai: 20
+ Az 7. hallgato jegye: 5, Pontjai: 49
+ Az 8. hallgato jegye: 2, Pontjai: 14
+ Az 9. hallgato jegye: 3, Pontjai: 28
+ Az 10. hallgato jegye: 1, Pontjai: 9
+ Az 11. hallgato jegye: 3, Pontjai: 24
+ Az 12. hallgato jegye: 1, Pontjai: 7
+ Az 13. hallgato jegye: 1, Pontjai: 3
+ Az 14. hallgato jegye: 5, Pontjai: 43
+ Az 15. hallgato jegye: 5, Pontjai: 48
+ Az 16. hallgato jegye: 5, Pontjai: 42
+ Az 17. hallgato jegye: 1, Pontjai: 3
+ Az 18. hallgato jegye: 2, Pontjai: 17
+ Az 19. hallgato jegye: 2, Pontjai: 12
+ Az 20. hallgato jegye: 3, Pontjai: 21
+Process returned -1073741819 (0xC0000005)   execution time : 2.489 s
+Press any key to continue.
