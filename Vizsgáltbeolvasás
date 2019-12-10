@@ -1,3 +1,9 @@
+Adjon meg egy tömbben 9 adatot : (12, 5, 9, 10, 12, 9, 10, 10, 11)
+1. Olvasson be ellenőrzött módon egy 1 és 20 közé eső egész számot. Ez legyen a 10. elem
+2. Írja ki a selejtszámok sorozatát
+3. Melyik a legtöbbször előfordulő selejtszám?
+(Legmagasabb selejt szám és hányszor fordul elő)
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
