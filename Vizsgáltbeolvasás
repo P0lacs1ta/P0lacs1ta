@@ -38,8 +38,10 @@ int main()
     for(i=1;i<10;i++){
         if(temp<adatok[i]){
             temp=adatok[i];
-            db=db+1;
             }
+        if(temp==adatok[i]){
+            db=db+1;
+        }
     }
     printf("\n Legnagyobb adat: %d. Ami %d alkalommal fordul elo", temp, db);
     return 0;
