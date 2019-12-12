@@ -74,20 +74,20 @@ Output:
 Adja meg a diakok szamat: 10
 A diakok letszama: 10
 Adja meg a magassagokat: 150
-5
-2
 1
-3
+4
 5
 6
-9
-52
+3
 2
-Magassagi ertekek sorozata: 150 ,5 ,2 ,1 ,3 ,5 ,6 ,9 ,52 ,2 ,
+5
+9
+6
+Magassagi ertekek sorozata: 150 ,1 ,4 ,5 ,6 ,3 ,2 ,5 ,9 ,6 ,
  Beolvasott tenyleges magassagok:
-150 155 ,152 ,151 ,153 ,155 ,156 ,159 ,202 ,152 ,
+150 151 ,304 ,306 ,311 ,313 ,318 ,324 ,330 ,332 ,
  Adja meg a kuszoberteket: 150
 
  A beolvasott kuszobertek: 150
-Process returned 0 (0x0)   execution time : 7.212 s
+Process returned 0 (0x0)   execution time : 7.782 s
 Press any key to continue.
