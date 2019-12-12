@@ -24,7 +24,7 @@ int main()
     //1. feladat:
     printf("Fogyasztasi ertekek sorozata: ");
     for(i=0;i<5;i++){
-        printf("%0.1lf , %0.1lf ; ", benzines[i], hybrid[i]);
+        printf("%0.1lf , %0.1lf \n ", benzines[i], hybrid[i]);
     }
     //2. feladat:
 
