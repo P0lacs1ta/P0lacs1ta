@@ -52,8 +52,8 @@ int main()
     printf("%d ",magassag[0]);
     temp=magassag[0];
     for(i=0;i<diakok-1;i++){
-        printf("%d ,", temp+magassag[i+1]);
-        temp=temp+magassag[i];
+        temp=temp+magassag[i+1];
+        printf("%d ,", temp);
     }
     //4. feladat:
         printf("\n Adja meg a kuszoberteket: ");
