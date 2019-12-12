@@ -1,3 +1,10 @@
+Egy dimenziós tömbbe adja meg az alkatrészek napi összemennyiségét 5 munkanapon keresztül
+1-3. nap 1678 2533 3223
+1. A negyedik napot olvassa be ellenőrzőtt módon: [1500-4500]
+2. Ötödik napot véletlenszám generátor számítsa ki [3500-4500]
+3. Írja ki a darabszámok sorozatát fordított sorrendben
+4. Állapítsa meg hogy az alkatrész darabszámok sorozata monoton növekszik-e
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
