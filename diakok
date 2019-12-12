@@ -8,7 +8,7 @@ Olvasson be egy tetszőleges pozítiv számot, és számolja meg az ennél kiseb
 
 int main()
 {
-    int diakok; int ok; char ch; int i; int magassag[15]; int kuszobertek=0; int darabszam=0;
+    int diakok; int ok; char ch; int i; int magassag[15]; int kuszobertek=0; int tenymagassag[15];
     printf("Adja meg a diakok szamat: ");
         do{
             ok=1;
@@ -23,8 +23,7 @@ int main()
 
             while(ch=getchar()!='\n');
         }while(!ok);
-
-    printf("A diakok letszama: %d \n", diakok);
+    printf("\n A diakok letszama: %d \n", diakok);
     //2. feladat:
     printf("Adja meg a magassagokat: ");
     for(i=0;i<diakok;i++){
@@ -51,43 +50,50 @@ int main()
     int temp=0;
     printf("%d ",magassag[0]);
     temp=magassag[0];
+    tenymagassag[0]=temp;
     for(i=0;i<diakok-1;i++){
         temp=temp+magassag[i+1];
         printf("%d ,", temp);
+        tenymagassag[i+1]=temp;
     }
     //4. feladat:
         printf("\n Adja meg a kuszoberteket: ");
+
         scanf("%d", &kuszobertek);
         printf("\n A beolvasott kuszobertek: %d", kuszobertek);
 
     //5. feladat:
-   /* for(i=0;i<diakok;i++){
-        if(kuszobertek>tenylegesmagassag[i]){
-            darabszam=darabszam+1;
+    int darab=0;
+    for(i=0;i<diakok;i++){
+        if(kuszobertek>tenymagassag[i]){
+            darab=darab+1;
         }
     }
-    printf("\n A kuszobnel kisebb ertekek szama: %d", darabszam);
-*/
+    printf("\n A kuszobbnel kisebb magassagok szama: %d", darab);
+
     return 0;
 }
+
 Output:
 Adja meg a diakok szamat: 10
-A diakok letszama: 10
-Adja meg a magassagokat: 150
-1
-4
+
+ A diakok letszama: 10
+Adja meg a magassagokat: 160
 5
-6
-3
+4
 2
+3
+6
 5
 9
 6
-Magassagi ertekek sorozata: 150 ,1 ,4 ,5 ,6 ,3 ,2 ,5 ,9 ,6 ,
+3
+Magassagi ertekek sorozata: 160 ,5 ,4 ,2 ,3 ,6 ,5 ,9 ,6 ,3 ,
  Beolvasott tenyleges magassagok:
-150 151 ,304 ,306 ,311 ,313 ,318 ,324 ,330 ,332 ,
- Adja meg a kuszoberteket: 150
+160 165 ,169 ,171 ,174 ,180 ,185 ,194 ,200 ,203 ,
+ Adja meg a kuszoberteket: 180
 
- A beolvasott kuszobertek: 150
-Process returned 0 (0x0)   execution time : 7.782 s
+ A beolvasott kuszobertek: 180
+ A kuszobbnel kisebb magassagok szama: 5
+Process returned 0 (0x0)   execution time : 7.999 s
 Press any key to continue.
