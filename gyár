@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <stdbool.h>
+int main()
+{
+    int mennyiseg[5]={1678, 2533, 3223}; int ok; char ch; int i;
+    srand(time(0));
+    
+    //1. feladat:
+    printf("Kerem adja meg a negyedik napi legyartott darabszamot: ");
+        do{
+            ok=1;
+            if(scanf("%d", &mennyiseg[3])!=1){
+                printf("Hibas adat! \n");
+                ok=0;
+            }
+            else if(mennyiseg[3]<1500 || mennyiseg[3]>4500){
+                printf("Hibas intervallum! \n");
+                ok=0;
+            }
+            while(ch=getchar()!='\n');
+        }while(!ok);
+    //2. feladat:
+    mennyiseg[4]=rand() % (4500-3500+1)+3500;
+    
+    //3. feladat:
+    printf("\n Az Alkatresz darabszamok sorozata forditva: ");
+    for(i=4;i>0;i--){
+    printf("%d ", mennyiseg[i]);
+    }
+    printf("%d ", mennyiseg[0]);
+    
+    //4. feladat:
+    bool monoton=false;
+    for(i=0;i<5;i++){
+        if(mennyiseg[i]<mennyiseg[i+1]){
+            monoton=true;
+        }
+    }
+    if(monoton=true){
+        printf("Szig. Mon. Novekvo: igen");
+    }
+    else{
+        printf("Szig. Mon. Novekvo: Nem");
+    }
+
+    return 0;
+}
+
+Output:
+Kerem adja meg a negyedik napi legyartott darabszamot: 1500
+
+ Az Alkatresz darabszamok sorozata forditva: 3565 1500 3223 2533 1678
+ Az Alkatresz darabsamok sorozata monton novekvo: Igen
+Process returned 0 (0x0)   execution time : 3.254 s
+Press any key to continue.
