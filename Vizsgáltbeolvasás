@@ -53,9 +53,9 @@ int main()
 
 }
 output:
-Kerem adja meg a 10. adatot: 13
+Kerem adja meg a 10. adatot: 12
 
-A selejtszamok sorozata: 12 5 9 10 12 9 10 10 11 13
-Legnagyobb adat: 13. Ami 2 alkalommal fordul elo.
+A selejtszamok sorozata: 12 5 9 10 12 9 10 10 11 12
+Legnagyobb adat: 12. Ami 2 alkalommal fordul elo.
 Process returned 0 (0x0)   execution time : 0.615 s
 Press any key to continue.
