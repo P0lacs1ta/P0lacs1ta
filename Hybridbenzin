@@ -1,0 +1,85 @@
+Benzines és hybrid megtesz 5-5 utat (1/100km) Mindegyik út során feljegyzika tényleges fogyasztási értékeket. Írjon C programot, amely
+megfelelő tipusú és méretű két db egydimenziós tömbben nyílvántartja ezeket az adatokat. Implementálja az alábbi részfeladatokat:
+1. Írja ki a 5-5 fogyasztási adatot párosával egymás alá 1 tizedesjegy pontossággal.
+2. Olvasson be ellenőrzött módon egy 0,3....0,5 közötti értéket!
+3. Határozza meg az egyes százalékos eltéréseket!
+4. Írja ki azokat a százalékos eltéréseket ,amelyek magasabbak a beolvasott értéknél.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    double benzines[5]; double hybrid[5]; int i; double elteresek[5];
+    printf("Kerem adja meg a benzines adatait: \n");
+    for(i=0;i<5;i++){
+        printf("%d. Adat: ", i+1);
+        scanf("%lf", &benzines[i]);
+    }
+    printf("Kerem adja meg a hybrid adatait: \n");
+    for(i=0;i<5;i++){
+        printf("%d. Adat: ", i+1);
+        scanf("%lf", &hybrid[i]);
+    }
+    //1. feladat:
+    printf("Fogyasztasi ertekek sorozata: ");
+    for(i=0;i<5;i++){
+        printf("%0.1lf , %0.1lf ; ", benzines[i], hybrid[i]);
+    }
+    //2. feladat:
+
+
+    int ok; char ch; double beelteres;
+    printf("\n Adja meg a velemenyezett elterest: ");
+    do{
+        ok=1;
+        if(scanf("%lf", &beelteres)!=1){
+            printf("Hibas adat! \n");
+            ok=0;
+        }
+        else if(beelteres<0.3 || beelteres>0.5){
+            printf("Hibas intervallum! \n");
+            ok=0;
+        }
+
+    while(ch=getchar()!='\n');
+    }while(!ok);
+    printf("\n Velemenyezett elteres: %0.2lf", beelteres);
+
+    //3. feladat
+    printf("\n Szazalekos elteresek: ");
+    for(i=0;i<5;i++){
+    printf("%0.1lf ", 100-(100*hybrid[i]/benzines[i]));
+    elteresek[i]=100-(100.0*hybrid[i]/benzines[i]);
+    }
+    //4. feladat
+    printf("\n A %0.0lf szazaleknal nagyobb elteresek: ", beelteres*100);
+    for(i=0;i<5;i++){
+        if(beelteres*100<elteresek[i]){
+            printf("%0.1lf ", elteresek[i]);
+        }
+    }
+
+    return 0;
+}
+Output:
+Kerem adja meg a benzines adatait:
+1. Adat: 8.5
+2. Adat: 6.5
+3. Adat: 4.9
+4. Adat: 7.5
+5. Adat: 6.8
+Kerem adja meg a hybrid adatait:
+1. Adat: 8.0
+2. Adat: 6.2
+3. Adat: 3.2
+4. Adat: 5.8
+5. Adat: 3.8
+Fogyasztasi ertekek sorozata: 8.5 , 8.0 ; 6.5 , 6.2 ; 4.9 , 3.2 ; 7.5 , 5.8 ; 6.8 , 3.8 ;
+Adja meg a velemenyezett elterest: 0.40
+
+Velemenyezett elteres: 0.40
+Szazalekos elteresek: 5.9 4.6 34.7 22.7 44.1
+A 45 szazaleknal nagyobb elteresek: 44.1
+Process returned 0 (0x0)   execution time : 16.755 s
+Press any key to continue.
