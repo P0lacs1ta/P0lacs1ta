@@ -1,0 +1,88 @@
+Írjon C programot, amely megfelelő tipusú és méretű egydimenziós tömbben nyilvántartja 10 hallgató
+zh eredményét : 38, 24, 12, 27, 22, 10, 32, 29, 26, 15. Ezeket a programból inicializálja. A dolgozat
+összepontszáma 40. Implementálja az alábbi részfeladatokat:
+1. Olvasson be ellenőrzött módon egy egész számot 20-25 között. Ez lesz a dolgozat sikerességének
+küszöbértéke
+2. Hány hallgató dolgozata sikeres? Ez az érték hány százaléka az összes dolgozatnak?
+3. Írja ki a pontszámok sorozatát úgy, hogy minden pontszám mellé zárójelben írja ki, hogy hány pont
+hiányzik a sikerességhez. A sikeres dolgozatok esetén 0
+Tesztadat: 22
+Eredmény:
+Sikeres dolgozatok száma: 7, 70%
+Pontszámok: 38 (0), 24(0), .......
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int Kuszob(int kuszobertek);
+int Sikdolgozatok(int *eredmutato, int kuszobertek);
+void pontszamok(int *eredmutato, int kuszobertek);
+
+int main()
+{
+    int eredmenyek[10]={38, 24, 12, 27, 22, 10, 32, 29, 26, 15};
+    int *eredmutato; int db=0;
+    eredmutato=eredmenyek;
+    int kuszobertek=Kuszob(kuszobertek);
+    db=Sikdolgozatok(eredmutato, kuszobertek);
+    printf("Sikeres dolozatok szama: %d %d szazalek \n", db, db*10);
+    pontszamok(eredmutato, kuszobertek);
+    printf("\n");
+
+    return 0;
+}
+
+int Kuszob(int kuszobertek){
+    int ok; char ch;
+    printf("Adja meg a kuszoberteket: ");
+        do{
+            ok=1;
+            if(scanf("%d", &kuszobertek)!=1){
+                ok=0;
+                printf("Hibas adat! \n");
+            } else if(kuszobertek<20 || kuszobertek>25){
+                    ok=0;
+                    printf("Hibas intervallum! \n");
+
+              }
+            while(ch=getchar()!='\n');
+
+        }while(!ok);
+    return kuszobertek;
+}
+
+int Sikdolgozatok(int *eredmutato, int kuszobertek){
+    int i; int db=0; int szazalek;
+    for(i=0;i<10;i++){
+        if(eredmutato[i]>=kuszobertek){
+                db=db+1;
+        }
+    }
+    return db;
+}
+
+void pontszamok(int *eredmutato, int kuszobertek){
+    int i; int hianypont[10];
+        for(i=0;i<10;i++){
+            if(eredmutato[i]-kuszobertek>0){
+                hianypont[i]=0;
+            } else{
+                    hianypont[i]=kuszobertek-eredmutato[i];
+              }
+        }
+        printf("Pontszamok: \n");
+            for(i=0;i<10;i++){
+                printf("%d (%d) , ", eredmutato[i], hianypont[i]);
+            }
+}
+
+Output:
+
+Adja meg a kuszoberteket: 22
+Sikeres dolozatok szama: 7 70 szazalek
+Pontszamok:
+38 (0) , 24 (0) , 12 (10) , 27 (0) , 22 (0) , 10 (12) , 32 (0) , 29 (0) , 26 (0) , 15 (7) ,
+
+Process returned 0 (0x0)   execution time : 0.983 s
+Press any key to continue.
+
