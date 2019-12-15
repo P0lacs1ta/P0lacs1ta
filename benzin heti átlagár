@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+bool monotoncsoke(double *adat);
+
+int main()
+{
+    double adatok[12]={350.6, 348.6, 421.2, 365.2, 412.3, 359.2, 352.3, 410.3};
+    double *adat; int i;
+    adat=adatok;
+    beolvasas(adat);
+    if(monotoncsoke(adat)==0){
+        printf("A benzin ara monoton csokkent: nem \n");
+    }
+    else{
+        printf("A benzin ara monoton csokkent: Igen \n");
+
+    }
+    sorozat(adat);
+
+
+
+
+    return 0;
+}
+
+void beolvasas(double *adat){
+    int ok; char ch; int i;
+    printf("\n Kerem adja meg a harmadik honap adatait: ");
+    for(i=8;i<12;i++){
+        do{
+            ok=1;
+            if(scanf("%lf", &adat[i])!=1){
+                ok=0;
+                printf("Hibas adat! \n");
+            } else if(adat[i]<350 || adat[i]>420){
+                ok=0;
+                printf("Hibas intervallum! \n");
+            }
+
+            while(ch=getchar()!='\n');
+        }while(!ok);
+    }
+}
+bool monotoncsoke(double *adat){
+    int i; bool montone=true;
+    for(i=0;i<12-1;i++){
+        if(adat[i]<adat[i+1]){
+            montone=false;
+        }
+    }
+    return montone;
+}
+
+void sorozat(double *adat){
+    int i;
+    printf("%lf ; ",adat[0]);
+    for(i=0;i<12-1;i++){
+        printf("%0.1lf ; ", adat[i+1]-adat[i]);
+    }
+
+
+}
+
+
