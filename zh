@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+double Atlagszamitas(int *adat);
+void tablazat(int *adat, double atlag);
+
+int main()
+{
+   srand(time(0));
+   int adatok[20]; int i;
+   int *adat;
+   adat=adatok;
+    Feltoltes(adat);
+    double jelenlegi_atlag = Atlagszamitas(adat);
+    printf("\n Az eredmeny: %0.2lf \n", jelenlegi_atlag);
+
+    tablazat(adat, jelenlegi_atlag);
+    return 0;
+}
+
+
+void Feltoltes(int *adat){
+    int i;
+    for(i=0;i<20;i++){
+        adat[i]=rand() % (950-300+1)+300;
+    }
+}
+
+double Atlagszamitas(int *adat){
+    int i; double atlag=0; int n=20;
+    for(i=0;i<n;i++){
+        atlag=atlag+adat[i];
+    }
+
+    return atlag/n;
+}
+
+void tablazat(int *adat, double atlag){
+    int elteres=0;
+    int i;
+    printf("Harmadik feladat: \n");
+    for(i=0;i<20;i++){
+        printf("%d %0.2lf %0.2lf \n", adat[i], atlag, adat[i]-atlag);
+    }
+
+}
+
