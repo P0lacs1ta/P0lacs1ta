@@ -1,0 +1,81 @@
+Hozzon létre egy tömböt a main függvényben majd incizalizáljon 8 elemet : 12, 5, 9, 10, 12, 9, 10, 10
+1. Olvasson be ellenőrzött módon egy 1 és 20 közötti egész számot. Ez legyen a tömb 9. eleme.
+2. A sorozat 10. elemét számítsa ki a program: az előző 9 elem átlaga (egész számban)
+3. Írja ki a selejtszámok sorozatát
+4. Hányszor volt a selejtszám 10% alatt, ha a gépsor kapacítása 100termék/nap
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int Selejtbeolvas(int *adat);
+int Utolsoelem(int *adat);
+
+int main()
+{
+    int adatok[10]={12, 5, 9, 10, 12, 9, 10, 10};
+    int i; int jelenlegi_atlag=0;
+    int *adat;
+    adat=adatok;
+    Selejtbeolvas(adat);  //Első függvény meghívása, adat pointer tömb átadása
+    jelenlegi_atlag=Utolsoelem(adat); //Második függvény meghívása, eredményének átadása a jelenlegi_atlag-ba,adat pointer tömb átadása
+    Selejtsorozat(adat); //Harmadik függvény meghívása, adat pointer tömb átadása
+    Tszazalekalatt(adat); //Negyedik függvény meghívása, adat pointer tömb átadása
+    return 0;
+}
+
+//1. feladat
+int Selejtbeolvas(int *adat){
+    int ok; char ch;
+    printf("Kerem adja meg a 9. selejtszamot! \n");
+    do{
+        ok=1;
+        if(scanf("%d", &adat[8])!=1){
+            ok=0;
+            printf("Hibas adat! \n");
+        }
+        else if(adat[8]<1 || adat[8]>20){
+            ok=0;
+            printf("Hibas intervallum! \n");
+
+        }while(ch=getchar()!='\n');
+    }while (!ok);
+
+return *adat;
+
+}
+//2. feladat
+int Utolsoelem(int *adat){
+    int i, atlag=0; int adatszam=9;
+    for(i=0;i<adatszam;i++){
+        atlag=atlag+adat[i];
+    }
+    adat[9]=atlag/adatszam;
+    return *adat;
+}
+//3. feladat
+void Selejtsorozat(int *adat){
+    int i;
+    printf("\n A selejtszamok sorozata: ");
+    for(i=0;i<10;i++){
+        printf("%d , ", adat[i]);
+    }
+}
+//4. feladat
+void Tszazalekalatt(int *adat){
+    int i; int darab=0;
+        for(i=0;i<10;i++){
+            if(adat[i]<10){
+                darab=darab+1;
+            }
+        }
+    printf("\n A selejtszam ennyiszer volt 10 szazalek alatt: %d", darab);
+}
+
+Kimenet:
+Kerem adja meg a 9. selejtszamot!
+15
+A selejtszamok sorozata: 12 , 5 , 9 , 10 , 12 , 9 , 10 , 10 , 15 , 10 ,
+A selejtszam ennyiszer volt 10 szazalek alatt: 3
+
+Process returned 0 (0x0)   execution time : 2.033 s
+Press any key to continue.
