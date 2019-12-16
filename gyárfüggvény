@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <stdbool.h>
+
+int Negyedikadat(int *adat);
+int Otodikadat(int *adat);
+void Fordkiiratas(int *adat);
+void Mononovekszik(int *adat);
+
+int main()
+{
+    int adatok[5]={1678, 2533, 3223};
+    int *adat;
+    adat=adatok;
+    Negyedikadat(adat);
+    Otodikadat(adat);
+    Fordkiiratas(adat);
+    Mononovekszik(adat);
+
+
+    return 0;
+}
+
+int Negyedikadat(int *adat){
+    int ok; char ch;
+    printf("Adja meg a negyedik adatot: ");
+        do{
+            ok=1;
+            if(scanf("%d", &adat[3])!=1){
+                ok=0;
+                printf("Hibas adat! \n");
+            }
+            else if(adat[3]<1500 || adat[3]>4500){
+                ok=0;
+                printf("Hibas intervallum! \n");
+            }
+            while (ch=getchar()!='\n');
+        }while (!ok);
+    return adat;
+}
+
+int Otodikadat(int *adat){
+    srand(time(0));
+    adat[4]=rand() % (4500-3500+1)+3500;
+
+    return adat;
+}
+
+void Fordkiiratas(int *adat){
+    int i;
+    printf("\n Az alkatresz darabszamok sorozata forditva: ");
+    for(i=4;i>-1;i--){
+        printf("%d ", adat[i]);
+    }
+}
+
+void Mononovekszik(int *adat){
+    int i; bool monoton=true;
+    for(i=0;i<5-1;i++){
+        if(adat[i]>adat[i+1]){
+            monoton=false;
+            break;
+        }
+    }
+    if(monoton==false){
+        printf("\n Az alkatresz darabszamok sorozata monoton novekszik: Nem \n");
+    }else {
+        printf("\n Az alkatresz darabszamok sorozata monoton novekszik: Igen \n");
+     }
+
+}
