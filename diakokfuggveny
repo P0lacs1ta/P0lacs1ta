@@ -1,0 +1,133 @@
+/*
+Olvassa be a diákok létszámát 10-15 közötti egész szám formájában ellenőrzött módon.
+Olvassa be a diákok magasságát, de tárolni már a teljes magasságot tárolja, ne csak az eltérést (nem lehet negatív)
+Írja ki a magasságokat
+Olvasson be egy tetszőleges pozítiv számot, és számolja meg az ennél kisebb értékek db  számát.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int Diakszam();
+int Diakmagassag(int diakok, int magassagok[]);
+int Tenylegesmagassagok(int diakok, int magassagok[], int tenymagassagok[]);
+
+int main()
+{
+    int diakok=Diakszam();
+    int Diakmagassag(diakok);
+    int magassagok[diakok];
+    int tenymagassagok[diakok];
+    Diakmagassag(diakok, magassagok);
+    Tenylegesmagassagok(diakok, magassagok, tenymagassagok);
+    Kisebbertekek(diakok, tenymagassagok);
+
+    return 0;
+}
+
+int Diakszam(){
+    printf("Adja meg a diakok szamat: ");
+    int ok; char ch; int diakok;
+        do{
+           ok=1;
+           if(scanf("%d", &diakok)!=1){
+                ok=0;
+                printf("Hibas adat! \n");
+           }
+           else if(diakok<10 || diakok>15){
+                ok=0;
+                printf("Hibas intervallum! \n");
+           }
+           while(ch=getchar()!='\n');
+        }while (!ok);
+    printf("\n A diakok letszama: %d", diakok);
+
+
+    return diakok;
+}
+
+int Diakmagassag(int diakok, int magassagok[]){
+    printf("\n Adja meg a diakok magassagat: ");
+    int ok; char ch; int i;
+        for(i=0;i<diakok;i++){
+            do{
+                ok=1;
+                if(scanf("%d", &magassagok[i])!=1){
+                    ok=0;
+                    printf("\n Hibas adat! \n");
+                }
+                else if(magassagok[i]<0){
+                    ok=0;
+                    printf("A szam nem lehet negativ! \n");
+                }
+                while(ch=getchar()!='\n');
+            }while(!ok);
+        }
+    printf("\n A magassagi ertekek sorozata: ");
+    for(i=0;i<diakok;i++){
+    printf("%d ", magassagok[i]);}
+
+    return magassagok;
+}
+
+int Tenylegesmagassagok(int diakok, int magassagok[], int tenymagassagok[]){
+    int temp=0; int i;
+    for(i=0;i<diakok;i++){
+        temp=temp+magassagok[i];
+        tenymagassagok[i]=temp;
+    }
+    printf("\n Tenyleges magassagok: ");
+    for(i=0;i<diakok;i++){
+    printf("%d ", tenymagassagok[i]);}
+
+return tenymagassagok;
+
+}
+
+void Kisebbertekek(int diakok, int tenymagassagok[]){
+    int i; int ok; char ch; int kuszobertek=0; int darab=0;
+    printf("\n Adja meg a kuszoberteket: ");
+        do{
+                ok=1;
+                if(scanf("%d", &kuszobertek)!=1){
+                    ok=0;
+                    printf("\n Hibas adat! \n");
+                }
+                else if(kuszobertek<0){
+                    ok=0;
+                    printf("A szam nem lehet negativ! \n");
+                }
+                while(ch=getchar()!='\n');
+            }while(!ok);
+    printf("\n A beolvasott kuszobertek: %d", kuszobertek);
+    for(i=0;i<diakok;i++){
+        if(tenymagassagok[i]<kuszobertek){
+            darab=darab+1;
+        }
+    }
+    printf("\n A kuszoberteknel kisebb magassagok szama: %d", darab);
+}
+
+Kimenet: 
+Adja meg a diakok szamat: 10
+
+ A diakok letszama: 10
+ Adja meg a diakok magassagat: 150
+1
+5
+2
+3
+2
+1
+5
+2
+3
+
+ A magassagi ertekek sorozata: 150 1 5 2 3 2 1 5 2 3
+ Tenyleges magassagok: 150 151 156 158 161 163 164 169 171 174
+ Adja meg a kuszoberteket: 160
+
+ A beolvasott kuszobertek: 160
+ A kuszoberteknel kisebb magassagok szama: 4
+Process returned 0 (0x0)   execution time : 10.906 s
+Press any key to continue.
